@@ -6,7 +6,7 @@
         The quick brown fox jumps over the lazy dog.
       </p>
     </div>
-    <div class="p-3 bg-white shadow rounded-lg">
+    <div class="p-3 bg-blue-200 shadow rounded-lg">
       <h3 class="text-xs border-b">font-serif</h3>
       <p class="font-serif">
         The quick brown fox jumps over the lazy dog.
