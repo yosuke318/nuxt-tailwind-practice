@@ -1,4 +1,10 @@
-FROM ubuntu:latest
-LABEL authors="maruyama"
+FROM node:21-slim
 
-ENTRYPOINT ["top", "-b"]
+ENV TZ Asia/Tokyo
+
+WORKDIR /app
+
+RUN apt-get update \
+    && apt-get install -y \
+    git \
+    vim
