@@ -5,6 +5,7 @@ import { defineNuxtPlugin } from '#app';
 
 /**
  * nuxtアプリ全体でuserPoolを利用するための設定
+ * todo このフォルダをどう使うか
  */
 export default defineNuxtPlugin((nuxtApp) => {
     const runtimeConfig = useRuntimeConfig();
