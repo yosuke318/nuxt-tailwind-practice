@@ -1,15 +1,15 @@
-<script setup lang="ts">
-import { useAuthStore } from '~/store/auth'
+<script setup>
+import {ref} from 'vue';
+import { CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js';
 
-const authStore = useAuthStore()
+const email = ref("");
+const password = ref("");
+const newPassword = ref("");
+const showNewPasswordInput= ref(false);
+const buttonLabel = ref("Login");
 
-const handleLoginClick = () => {
-  authStore.login()
-  navigateTo('/')
-}
+const nuxtApp = useNuxtApp();
+const userPool = nuxtApp.$userPool;
+const cognitoUser = userPool.getCurrentUser();
+
 </script>
-
-<template>
-  <h1 class="font-bold items-center">ログイン</h1>
-  <button type="button" @click="handleLoginClick()">ログイン</button>
-</template>

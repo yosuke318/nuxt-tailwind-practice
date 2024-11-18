@@ -14,8 +14,9 @@
     "nuxt": "^3.8.2",
     "vue": "^3.3.8",
     "vue-router": "^4.2.5",
-    "@pinia/nuxt": "^0.5.1",
-    "pinia": "^2.1.7"
+    "amazon-cognito-identity-js": "^6.3.6",
+    "@nuxt/types": "^2.17.1",
+    "@nuxtjs/vuetify": "^1.12.3"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.12.2"
