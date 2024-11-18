@@ -1,8 +1,9 @@
+<!-- index.vue -->
 <template>
-  <h1>ログイン画面</h1>
-  <nuxt-link to="/login">ログイン</nuxt-link>
-
+  <h1>Landing Page</h1>
+  <nuxt-link to="/login">Login</nuxt-link>
 </template>
 
+<script setup lang="ts">
 
-<script setup lang="ts"></script>
+</script>
