@@ -16,6 +16,9 @@ definePageMeta({
 const nuxtApp = useNuxtApp();
 const userPool = nuxtApp.$userPool;
 
+/**
+ * ログアウト処理
+ */
 const logout = async () => {
   const cognitoUser = userPool.getCurrentUser();
   if (cognitoUser != null) {
@@ -24,6 +27,9 @@ const logout = async () => {
   window.location.href = "/"
 };
 
+/**
+ * セッション確認
+ */
 const checkSession = () => {
   const cognitoUser = userPool.getCurrentUser();
 
