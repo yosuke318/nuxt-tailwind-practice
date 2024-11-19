@@ -16,7 +16,8 @@
     "vue-router": "^4.2.5",
     "amazon-cognito-identity-js": "^6.3.6",
     "@nuxt/types": "^2.17.1",
-    "@nuxtjs/vuetify": "^1.12.3"
+    "@nuxtjs/vuetify": "^1.12.3",
+    "vee-validate": "^4.14.7"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.12.2"
