@@ -2,30 +2,35 @@
 <template>
   <div class="h-screen bg-[#f8f8f9] flex justify-center items-center">
 
-
+    <!--ログインフォームの親要素-->
     <div class="w-[400px] py-6 bg-white rounded-lg flex-col justify-start items-start gap-6 inline-flex">
+
+      <!--アイコンとFor Example      -->
       <div class="self-stretch h-[34.29px] px-6 flex-col justify-start items-center gap-1.5 flex">
         <div class="justify-start items-end gap-6 inline-flex">
-          <img class="w-[120px] h-[34.29px]" src="../public/favicon.ico" alt="morimori Icon"/>
+          <img class="w-[120px] h-[34.29px]" src="../public/favicon.ico" alt="Icon"/>
           <div class="text-[#727785] text-sm font-bold font-['Inter'] leading-tight tracking-wide">
             For Example
           </div>
         </div>
       </div>
 
-<!--ボーダー部分-->
+      <!--ボーダー部分-->
       <div class="self-stretch h-px flex-col justify-center items-start flex">
         <div class="self-stretch h-[0px] border border-[#e1e2ec]"></div>
       </div>
 
-<!--メールアドレス部分      -->
+      <!--入力項目の親要素-->
       <div class="self-stretch h-[390px] px-6 flex-col justify-start items-start gap-6 flex">
+
+
+        <!--メールアドレス部分      -->
         <div class="self-stretch h-[45px] flex-col justify-center items-start gap-2 flex">
           <input placeholder="メールアドレス" class="self-stretch h-[45px] px-3 py-2.5 bg-white rounded border border-[#c2c6d6] justify-end items-center gap-2 inline-flex">
         </div>
 
 
-<!--氏名        -->
+        <!--氏名        -->
         <div class="self-stretch h-[69px] flex-col justify-start items-start gap-2 flex">
           <div class="self-stretch justify-start items-center gap-2 inline-flex">
             <div class="text-[#424753] text-xs font-medium font-['Inter'] leading-none tracking-wide">
@@ -35,7 +40,7 @@
           <div class="self-stretch h-[45px] px-3 py-2.5 bg-white rounded border border-[#c2c6d6]"></div>
         </div>
 
-<!--パスワード   -->
+        <!--パスワード   -->
         <div class="self-stretch h-[69px] flex-col justify-start items-start gap-2 flex">
           <div class="self-stretch justify-start items-center gap-2 inline-flex">
             <div class="text-[#424753] text-xs font-medium font-['Inter'] leading-none tracking-wide">
@@ -68,6 +73,9 @@
             </div>
           </div>
         </div>
+
+
+        <!--パスワード確認   -->
         <div class="self-stretch h-[69px] flex-col justify-start items-start gap-2 flex">
           <div class="self-stretch justify-start items-center gap-2 inline-flex">
             <div class="text-[#424753] text-xs font-medium font-['Inter'] leading-none tracking-wide">
@@ -100,9 +108,6 @@
             </div>
           </div>
         </div>
-
-
-
       </div>
 
 
