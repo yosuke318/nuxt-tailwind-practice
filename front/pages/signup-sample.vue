@@ -30,7 +30,7 @@
         </div>
 
 
-        <!--氏名        -->
+        <!--氏名部分-->
         <div class="self-stretch h-[69px] flex-col justify-start items-start gap-2 flex">
           <div class="self-stretch justify-start items-center gap-2 inline-flex">
             <div class="text-[#424753] text-xs font-medium font-['Inter'] leading-none tracking-wide">
@@ -40,7 +40,7 @@
           <div class="self-stretch h-[45px] px-3 py-2.5 bg-white rounded border border-[#c2c6d6]"></div>
         </div>
 
-        <!--パスワード   -->
+        <!--パスワード部分   -->
         <div class="self-stretch h-[69px] flex-col justify-start items-start gap-2 flex">
           <div class="self-stretch justify-start items-center gap-2 inline-flex">
             <div class="text-[#424753] text-xs font-medium font-['Inter'] leading-none tracking-wide">
@@ -75,7 +75,7 @@
         </div>
 
 
-        <!--パスワード確認   -->
+        <!--パスワード確認部分   -->
         <div class="self-stretch h-[69px] flex-col justify-start items-start gap-2 flex">
           <div class="self-stretch justify-start items-center gap-2 inline-flex">
             <div class="text-[#424753] text-xs font-medium font-['Inter'] leading-none tracking-wide">
@@ -108,16 +108,16 @@
             </div>
           </div>
         </div>
-      </div>
 
-
-
-
-      <div class="self-stretch h-[42px] bg-[#2271e3] rounded-lg justify-center items-center inline-flex">
-        <div class="grow shrink basis-0 h-10 px-4 py-3 justify-center items-center gap-2.5 flex">
-          <div class="text-right text-white text-xs font-bold font-['Inter'] leading-none tracking-wide">登録
+        <!--アカウント登録ボタン部分-->
+        <div class="self-stretch h-[42px] bg-[#2271e3] rounded-lg justify-center items-center inline-flex">
+          <div class="grow shrink basis-0 h-10 px-4 py-3 justify-center items-center gap-2.5 flex">
+            <div class="text-right text-white text-xs font-bold font-['Inter'] leading-none tracking-wide">
+              登録
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   </div>
