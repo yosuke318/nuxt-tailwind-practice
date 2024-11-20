@@ -21,7 +21,7 @@
         <div class="self-stretch h-[0px] border border-[#e1e2ec]"></div>
       </div>
 
-      <!--入力項目群の親要素-->
+      <!--入力項目とボタンの親要素-->
       <div class="self-stretch h-[390px] px-6 flex-col justify-start items-start gap-6 flex">
 
 
@@ -45,11 +45,10 @@
               氏名
             </div>
           </div>
-          <div class="self-stretch h-[50px] px-3 py-2.5
+          <div class="self-stretch h-[45px] px-3 py-2.5
               bg-white rounded border border-[#c2c6d6]
               justify-end items-center gap-2 inline-flex input-container">
             <input type="text"
-
                    class="w-full focus:outline-none"
             >
           </div>
@@ -64,7 +63,7 @@
           </div>
 
           <div
-              class="self-stretch h-[50px] px-3 py-2.5
+              class="self-stretch h-[45px] px-3 py-2.5
               bg-white rounded border border-[#c2c6d6]
               justify-end items-center gap-2 inline-flex input-container">
             <input :type="showPassword ? 'text' : 'password'"
@@ -99,7 +98,7 @@
           </div>
 
           <div
-              class="self-stretch h-[50px] px-3 py-2.5
+              class="self-stretch h-[45px] px-3 py-2.5
               bg-white rounded border border-[#c2c6d6]
               justify-end items-center gap-2 inline-flex input-container">
             <input :type="showPasswordVerify ? 'text' : 'password'"
@@ -128,13 +127,11 @@
         <div class="self-stretch h-[42px] bg-[#2271e3] rounded-lg justify-center items-center inline-flex">
 
           <button class="grow shrink basis-0 h-10 px-4 py-3 justify-center items-center gap-2.5 flex
-            text-right text-white text-xs font-bold font-['Inter'] leading-none tracking-wide
-            focus:outline-none focus:shadow-outline" @click="funcSample">
+            text-right text-white text-xs font-bold
+            rounded-lg hover:bg-[#357CE5] active:bg-[#4588E7] bg-[#2271e3]" @click="funcSample">
             登録
           </button>
-
         </div>
-
       </div>
     </div>
   </div>
