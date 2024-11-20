@@ -88,10 +88,12 @@
 
         <div class="h-8 rounded justify-center items-center inline-flex">
           <div class="self-stretch pl-1.5 pr-2 py-1 justify-center items-center gap-1.5 flex">
-            <div
-                class="text-center text-[#2271e3] text-xs font-bold font-['Inter'] underline leading-none tracking-wide">
+            <a href="/signup-sample"
+               class="text-center text-[#2271e3] text-xs font-bold font['Inter'] underline
+               leading-none tracking-none tracking-wide inline-block"
+               aria-label="パスワードリセットページへ">
               パスワードを忘れた方はこちら
-            </div>
+            </a>
           </div>
         </div>
       </div>
