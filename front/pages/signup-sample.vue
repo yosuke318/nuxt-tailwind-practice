@@ -74,13 +74,12 @@
             <div class="w-6 h-6 relative">
                           <span
                               @click="togglePasswordVisibility"
-                              class="tw-absolute tw-inset-y-0 tw-right-0 tw-pr-3 tw-flex tw-items-center"
                               type="button"
                           >
-                            <span v-if="showPassword" class="tw-text-gray-600">
+                            <span v-if="showPassword">
                               <img src="../public/open_eye.png" alt="view password">
                             </span>
-                            <span v-else class="tw-text-gray-600">
+                            <span v-else>
                               <img src="../public/closed_eye.png" alt="not view password">
                             </span>
                           </span>
@@ -109,13 +108,12 @@
             <div class="w-6 h-6 relative">
                           <span
                               @click="togglePasswordVerifyVisibility"
-                              class="tw-absolute tw-inset-y-0 tw-right-0 tw-pr-3 tw-flex tw-items-center"
                               type="button"
                           >
-                            <span v-if="showPasswordVerify" class="tw-text-gray-600">
+                            <span v-if="showPasswordVerify">
                               <img src="../public/open_eye.png" alt="view password">
                             </span>
-                            <span v-else class="tw-text-gray-600">
+                            <span v-else>
                               <img src="../public/closed_eye.png" alt="not view password">
                             </span>
                           </span>
