@@ -1,11 +1,12 @@
 <!-- index.vue -->
 <template>
+<!--  全体  -->
   <div class="h-screen bg-[#f8f8f9] flex justify-center items-center">
 
-    <!--ログインフォームの親要素-->
+    <!--サインアップフォーム-->
     <div class="w-[400px] py-6 bg-white rounded-lg flex-col justify-start items-start gap-6 inline-flex">
 
-      <!--アイコンとFor Example      -->
+      <!--アイコンと文字-->
       <div class="self-stretch h-[34.29px] px-6 flex-col justify-start items-center gap-1.5 flex">
         <div class="justify-start items-end gap-6 inline-flex">
           <img class="w-[120px] h-[34.29px]" src="../public/favicon.ico" alt="Icon"/>
@@ -126,13 +127,13 @@
 
         <!--アカウント登録ボタン部分-->
         <div class="self-stretch h-[42px] bg-[#2271e3] rounded-lg justify-center items-center inline-flex">
-<!--          <div class="grow shrink basis-0 h-10 px-4 py-3 justify-center items-center gap-2.5 flex">-->
+
             <button class="grow shrink basis-0 h-10 px-4 py-3 justify-center items-center gap-2.5 flex
             text-right text-white text-xs font-bold font-['Inter'] leading-none tracking-wide
             focus:outline-none focus:shadow-outline" @click="funcSample">
               登録
             </button>
-<!--          </div>-->
+
         </div>
 
       </div>
