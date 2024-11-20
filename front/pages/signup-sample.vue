@@ -49,6 +49,7 @@
               bg-white rounded border border-[#c2c6d6]
               justify-end items-center gap-2 inline-flex input-container">
             <input type="text"
+                   v-model="userName"
                    class="w-full focus:outline-none"
             >
           </div>
@@ -140,6 +141,7 @@
 
 import {ref, computed} from 'vue'
 
+const userName = ref('')
 const password = ref('')
 const passwordVerify = ref('')
 const showPassword = ref(false)
@@ -157,7 +159,9 @@ const togglePasswordVerifyVisibility = () => {
 
 
 const funcSample = () => {
-  console.log("button click")
+  console.log(userName.value)
+  console.log(password.value)
+  console.log(passwordVerify.value)
 }
 
 
