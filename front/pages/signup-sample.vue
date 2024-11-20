@@ -1,6 +1,6 @@
 <!-- index.vue -->
 <template>
-<!--  全体  -->
+  <!--  全体  -->
   <div class="h-screen bg-[#f8f8f9] flex justify-center items-center">
 
     <!--サインアップフォーム-->
@@ -26,12 +26,14 @@
 
 
         <!--メールアドレス部分      -->
-        <div class="w-full h-[45px] px-3 py-2.5 bg-[#2271e3]/5 rounded border border-[#ecedf7] justify-start items-center gap-2 inline-flex">
+        <div
+            class="w-full h-[45px] px-3 py-2.5 bg-[#2271e3]/5 rounded border border-[#ecedf7] justify-start items-center gap-2 inline-flex">
           <div class="w-7 h-7 p-[2.92px] justify-center items-center flex">
             <img src="../public/account.png" alt="account icon"/>
           </div>
-          <div class="grow shrink basis-0 text-[#424753] text-sm font-normal font-['Inter'] leading-[21px] tracking-tight">
-            {{email}}
+          <div
+              class="grow shrink basis-0 text-[#424753] text-sm font-normal font-['Inter'] leading-[21px] tracking-tight">
+            {{ email }}
           </div>
         </div>
 
@@ -68,10 +70,7 @@
             <input :type="showPassword ? 'text' : 'password'"
                    v-model="password"
                    class="w-full focus:outline-none"
-                   @blur="validationCheck"
-                   :class="{ 'error': errorMessage }"
             >
-            <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
 
             <div class="w-6 h-6 relative">
                           <span
@@ -128,11 +127,11 @@
         <!--アカウント登録ボタン部分-->
         <div class="self-stretch h-[42px] bg-[#2271e3] rounded-lg justify-center items-center inline-flex">
 
-            <button class="grow shrink basis-0 h-10 px-4 py-3 justify-center items-center gap-2.5 flex
+          <button class="grow shrink basis-0 h-10 px-4 py-3 justify-center items-center gap-2.5 flex
             text-right text-white text-xs font-bold font-['Inter'] leading-none tracking-wide
             focus:outline-none focus:shadow-outline" @click="funcSample">
-              登録
-            </button>
+            登録
+          </button>
 
         </div>
 
@@ -145,7 +144,6 @@
 <script setup lang="ts">
 
 import {ref, computed} from 'vue'
-import {useField} from 'vee-validate'
 
 const password = ref('')
 const passwordVerify = ref('')
@@ -153,20 +151,6 @@ const showPassword = ref(false)
 const showPasswordVerify = ref(false)
 const email = ref('sample@emial.com')
 
-const minLength:number = 8;
-
-const validateMinLength = (password: string) => {
-  if (password && password.length < minLength) {
-    return `最小${minLength}から入力可能です。`;
-  }
-  return true;
-}
-
-const { value, errorMessage, validate } = useField('fieldName', validateMinLength);
-
-const validationCheck = async () => {
-  await validate();
-};
 
 const togglePasswordVisibility = () => {
   showPassword.value = !showPassword.value
