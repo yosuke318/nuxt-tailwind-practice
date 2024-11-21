@@ -47,10 +47,10 @@
                     type="button"
                     >
                 <span v-if="showNewPassword">
-                  <img src="../public/open_eye.png" alt="view password">
+                  <img src="../public/open_eye.svg" alt="view password">
                 </span>
                 <span v-else>
-                  <img src="../public/closed_eye.png" alt="not view password">
+                  <img src="../public/closed_eye.svg" alt="not view password">
                 </span>
 
               </span>
@@ -81,10 +81,10 @@
                               type="button"
                           >
                             <span v-if="showNewPasswordVerify">
-                              <img src="../public/open_eye.png" alt="view password">
+                              <img src="../public/open_eye.svg" alt="view password">
                             </span>
                             <span v-else>
-                              <img src="../public/closed_eye.png" alt="not view password">
+                              <img src="../public/closed_eye.svg" alt="not view password">
                             </span>
                           </span>
             </div>

@@ -63,10 +63,10 @@
                     type="button"
               >
                 <span v-if="showPassword">
-                  <img src="../public/open_eye.png" alt="view password">
+                  <img src="../public/open_eye.svg" alt="view password">
                 </span>
                 <span v-else>
-                  <img src="../public/closed_eye.png" alt="not view password">
+                  <img src="../public/closed_eye.svg" alt="not view password">
                 </span>
 
               </span>
