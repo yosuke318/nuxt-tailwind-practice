@@ -162,6 +162,11 @@ const funcSample = () => {
   console.log(userName.value)
   console.log(password.value)
   console.log(passwordVerify.value)
+  if (password.value != passwordVerify.value) {
+    alert("パスワードが一致しません");
+    return
+  }
+  // todo 送信処理
 }
 
 

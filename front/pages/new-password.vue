@@ -125,6 +125,11 @@ const toggleNewPasswordVerifyVisibility = () => {
 const funcSample = () => {
   console.log(newPassword.value)
   console.log(newPasswordVerify.value)
+  if (newPassword.value != newPasswordVerify.value) {
+    alert("パスワードが一致しません");
+    return
+  }
+  // todo 送信処理
 }
 
 
