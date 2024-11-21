@@ -6,10 +6,10 @@
     <!--サインアップフォーム-->
     <div class="w-[400px] py-6 bg-white rounded-lg flex-col justify-start items-start gap-6 inline-flex">
 
-      <!--アイコンと文字-->
+      <!--todo アイコンと文字-->
       <div class="self-stretch h-[34.29px] px-6 flex-col justify-start items-center gap-1.5 flex">
         <div class="justify-start items-end gap-6 inline-flex">
-          <img class="w-[120px] h-[34.29px]" src="../public/favicon.ico" alt="Icon"/>
+          <img class="w-[120px] h-[34.29px]" src="../public/kariru_logo.svg" alt="Icon"/>
           <div class="text-[#727785] text-sm font-bold font-['Inter'] leading-tight tracking-wide">
             For Example
           </div>
@@ -78,10 +78,10 @@
                               type="button"
                           >
                             <span v-if="showPassword">
-                              <img src="../public/open_eye.png" alt="view password">
+                              <img src="../public/open_eye.svg" alt="view password">
                             </span>
                             <span v-else>
-                              <img src="../public/closed_eye.png" alt="not view password">
+                              <img src="../public/closed_eye.svg" alt="not view password">
                             </span>
                           </span>
             </div>
@@ -112,10 +112,10 @@
                               type="button"
                           >
                             <span v-if="showPasswordVerify">
-                              <img src="../public/open_eye.png" alt="view password">
+                              <img src="../public/open_eye.svg" alt="view password">
                             </span>
                             <span v-else>
-                              <img src="../public/closed_eye.png" alt="not view password">
+                              <img src="../public/closed_eye.svg" alt="not view password">
                             </span>
                           </span>
             </div>
