@@ -5,7 +5,7 @@
     <!--コンテナ-->
     <div class="w-[400px] py-6 bg-white rounded-lg flex-col justify-start items-start gap-6 inline-flex">
 
-      <!--アイコンと文字-->
+      <!--todo アイコンと文字-->
       <div class="self-stretch h-[34.29px] px-6 flex-col justify-start items-center gap-1.5 flex">
         <div class="justify-start items-end gap-6 inline-flex">
           <img class="w-[120px] h-[34.29px]" src="../public/kariru_logo.svg" alt="reset email">
