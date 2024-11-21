@@ -79,6 +79,9 @@ const login = () => {
           console.log("Error:", err);
         }
       });
+    },
+    onFailure: function (err) {
+      console.log("Error:", err);
     }
   });
 };
