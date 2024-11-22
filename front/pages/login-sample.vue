@@ -37,6 +37,7 @@
               justify-end items-center gap-2 inline-flex input-container">
             <input type="text"
                    class="w-full focus:outline-none"
+                   v-model="email"
             >
           </div>
         </div>
@@ -79,7 +80,9 @@
 
           <button class="grow shrink basis-0 h-10 px-4 py-3 justify-center items-center gap-2.5 flex
             text-right text-white text-xs font-bold
-            rounded-lg hover:bg-[#357CE5] active:bg-[#4588E7] bg-[#2271e3]">
+            rounded-lg hover:bg-[#357CE5] active:bg-[#4588E7] bg-[#2271e3]"
+                  @click="handleSignIn"
+          >
             ログイン
           </button>
 
@@ -105,12 +108,46 @@
 
 import {ref} from 'vue'
 
+// todo 認証系の処理がuseAuth.tsに書かれているが、その配置場所について考慮中
+import {useAuth} from "~/composables/useAuth";
+
+const {signIn} = useAuth()
+
+const email = ref('')
 const password = ref('')
 const showPassword = ref(false)
 
 const togglePasswordVisibility = () => {
   showPassword.value = !showPassword.value
 }
+
+/**
+ * wip ログイン処理
+ */
+// const handleSignIn = async () => {
+//
+//   try {
+//     console.log("1111111");
+//     // 認証処理を行う
+//     const session = signIn(email.value, password.value);
+//     console.log("Sign in successful", session);
+//     if (session && typeof session.AccessToken !== "undefined") {
+//       sessionStorage.setItem("accessToken", session.AccessToken);
+//       if (sessionStorage.getItem("accessToken")) {
+//         window.location.href = "/home";
+//       } else {
+//         console.error("Session token was not set properly.");
+//       }
+//     } else {
+//       // 認証失敗
+//       console.error("SignIn session or AccessToken is undefined.");
+//     }
+//   } catch (error) {
+//     // 認証失敗
+//     alert(`Sign in failed: ${error}`);
+//   }
+// };
+
 </script>
 
 
