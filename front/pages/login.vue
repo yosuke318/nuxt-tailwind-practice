@@ -7,6 +7,8 @@
     <input v-if="showNewPasswordInput" type="password" v-model="newPassword" placeholder="New Password"/>
     <button @click="login">{{ buttonLabel }}</button>
   </div>
+
+  <nuxt-link to="/signup">Sign Up Here</nuxt-link>
 </template>
 
 <script setup lang="ts">
