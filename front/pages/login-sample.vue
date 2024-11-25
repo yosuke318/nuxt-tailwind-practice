@@ -124,29 +124,29 @@ const togglePasswordVisibility = () => {
 /**
  * wip ログイン処理
  */
-// const handleSignIn = async () => {
-//
-//   try {
-//     console.log("1111111");
-//     // 認証処理を行う
-//     const session = signIn(email.value, password.value);
-//     console.log("Sign in successful", session);
-//     if (session && typeof session.AccessToken !== "undefined") {
-//       sessionStorage.setItem("accessToken", session.AccessToken);
-//       if (sessionStorage.getItem("accessToken")) {
-//         window.location.href = "/home";
-//       } else {
-//         console.error("Session token was not set properly.");
-//       }
-//     } else {
-//       // 認証失敗
-//       console.error("SignIn session or AccessToken is undefined.");
-//     }
-//   } catch (error) {
-//     // 認証失敗
-//     alert(`Sign in failed: ${error}`);
-//   }
-// };
+const handleSignIn = async () => {
+
+  try {
+    console.log("1111111");
+    // 認証処理を行う
+    const session = await signIn(email.value, password.value);
+    console.log("Sign in successful", session?.AccessToken);
+    if (session && typeof session.AccessToken !== "undefined") {
+      sessionStorage.setItem("accessToken", session.AccessToken);
+      if (sessionStorage.getItem("accessToken")) {
+        window.location.href = "/";
+      } else {
+        console.error("Session token was not set properly.");
+      }
+    } else {
+      // 認証失敗
+      console.error("SignIn session or AccessToken is undefined.");
+    }
+  } catch (error) {
+    // 認証失敗
+    alert(`Sign in failed: ${error}`);
+  }
+};
 
 </script>
 
