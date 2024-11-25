@@ -140,13 +140,16 @@
 <script setup lang="ts">
 
 import {ref, computed} from 'vue'
+import {useAuth} from "~/composables/useAuth";
+
+const {signUp} = useAuth()
 
 const userName = ref('')
 const password = ref('')
 const passwordVerify = ref('')
 const showPassword = ref(false)
 const showPasswordVerify = ref(false)
-const email = ref('sample@emial.com')
+const email = ref('yosukemaruyama617@gmail.com')
 
 
 const togglePasswordVisibility = () => {
@@ -158,10 +161,17 @@ const togglePasswordVerifyVisibility = () => {
 }
 
 
-const funcSample = () => {
+const funcSample = async () => {
   console.log(userName.value)
   console.log(password.value)
   console.log(passwordVerify.value)
+
+  try {
+    await signUp(email.value, userName.value, password.value)
+    window.location.href = '/signup-confirm';
+  } catch(error) {
+    console.log(`Sign Up failed: ${error}`)
+  }
 }
 
 

@@ -2,15 +2,19 @@ import {
     AuthFlowType,
     CognitoIdentityProviderClient,
     InitiateAuthCommand,
+    type InitiateAuthCommandInput,
     type InitiateAuthCommandOutput,
+    SignUpCommand,
+    type SignUpCommandInput,
+    type SignUpCommandOutput
 } from "@aws-sdk/client-cognito-identity-provider";
 
 
-
 const client = new CognitoIdentityProviderClient({
-    region: "ap-northeast-1" // 例: "us-east-1"
+    region: "ap-northeast-1"
 });
 
+const config = useRuntimeConfig();
 
 // ============================================================================
 // ログイン処理
@@ -19,20 +23,21 @@ export const useAuth = () => {
     const signIn = async (email: string, password: string) => {
 
         try {
-            const config = useRuntimeConfig();
-            console.log(config.public.clientId)
-
             // ログインパラメータ設定
-            const params = new InitiateAuthCommand({
+            const params: InitiateAuthCommandInput = {
                 AuthFlow: AuthFlowType.USER_PASSWORD_AUTH,
                 ClientId: config.public.clientId,
                 AuthParameters: {
                     USERNAME: email,
                     PASSWORD: password,
                 }
-            });
-            const response: InitiateAuthCommandOutput = await client.send(params);
+            };
 
+            const command = new InitiateAuthCommand(params)
+            const response: InitiateAuthCommandOutput = await client.send(command);
+
+
+            // ローカルでトークンをセット
             if (response.ChallengeName === undefined) {
                 const {AuthenticationResult} = response;
                 console.log("AuthenticationResult:", AuthenticationResult);
@@ -44,10 +49,40 @@ export const useAuth = () => {
                     return AuthenticationResult;
                 }
             }
-        } catch(error) {
-            console.error("Error signing in:" , error);
+        } catch (error) {
+            console.error("Error signing in:", error);
             throw error;
         }
     };
-    return {signIn}
+
+    const signUp = async (email: string, username: string, password: string) => {
+
+
+        const params: SignUpCommandInput = {
+            ClientId: config.public.clientId,
+
+            Username: email,
+            Password: password,
+            UserAttributes: [
+                {
+                    Name: "email",
+                    Value: email
+                },
+            ],
+        }
+
+        try {
+            const command = new SignUpCommand(params);
+            const response: SignUpCommandOutput = await client.send(command);
+            console.log(response);
+        } catch (error) {
+            console.error("Error signing up:", error);
+            throw error;
+        }
+    };
+
+    return {
+        signIn,
+        signUp
+    }
 }

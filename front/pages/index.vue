@@ -32,6 +32,5 @@
 
 const clearSessionStorageId = () => {
   sessionStorage.clear()
-  window.location.href = "/login-sample"
 }
 </script>
