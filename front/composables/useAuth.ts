@@ -139,7 +139,7 @@ export const useAuth = () => {
             const response:　InitiateAuthCommandOutput = await client.send(command)
 
             /**
-             * 一次的なパスワードで認証する。
+             * 認証チャレンジする。
              */
             if (response.ChallengeName === "NEW_PASSWORD_REQUIRED") {
                 console.log("newpasswordrequired")
@@ -149,7 +149,14 @@ export const useAuth = () => {
                     ChallengeResponses: {
                         USERNAME: email,
                         NEW_PASSWORD: new_password
-                    }
+                    },
+                    Session: response.Session
+                }
+                try {
+                    const response: RespondToAuthChallengeCommandOutput = RespondToAuthChallengeCommand(params);
+                    console.log(response);
+                } catch(error) {
+                    console.error("challenge newpassword is failed", error)
                 }
             }
         }catch(error) {
