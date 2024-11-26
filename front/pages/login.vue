@@ -7,9 +7,11 @@
     <input v-if="showNewPasswordInput" type="password" v-model="newPassword" placeholder="New Password"/>
     <button @click="login">{{ buttonLabel }}</button>
   </div>
+
+  <nuxt-link to="/signup">Sign Up Here</nuxt-link>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {ref} from 'vue';
 import {CognitoUser, AuthenticationDetails} from 'amazon-cognito-identity-js';
 
@@ -79,6 +81,9 @@ const login = () => {
           console.log("Error:", err);
         }
       });
+    },
+    onFailure: function (err) {
+      console.log("Error:", err);
     }
   });
 };
