@@ -10,9 +10,9 @@ import {
     AdminCreateUserCommand,
     type AdminCreateUserCommandInput,
     type AdminCreateUserCommandOutput,
-    RespondToAuthChallengeCommand,
-    type RespondToAuthChallengeCommandInput,
-    type RespondToAuthChallengeCommandOutput
+    AdminSetUserPasswordCommand,
+    type AdminSetUserPasswordCommandInput,
+    type AdminSetUserPasswordCommandOutput
 } from "@aws-sdk/client-cognito-identity-provider";
 
 
@@ -90,7 +90,7 @@ export const useAuth = () => {
         }
     };
 
-    const adminSignUp = async (email:string) => {
+    const adminSignUp = async (email: string) => {
 
         console.log(config.public.credentials)
 
@@ -100,7 +100,7 @@ export const useAuth = () => {
         });
 
 
-        const params:AdminCreateUserCommandInput = {
+        const params: AdminCreateUserCommandInput = {
             UserPoolId: config.public.userPoolId,
             Username: email,
 
@@ -124,49 +124,54 @@ export const useAuth = () => {
 
     };
 
-    const initialSignIn = async (email: string, username: string, temporary_password: string, new_password:string) => {
-        const params: InitiateAuthCommandInput = {
-            ClientId: config.public.clientId,
-            AuthFlow: AuthFlowType.USER_PASSWORD_AUTH,
-            AuthParameters: {
-                USERNAME: email,
-                PASSWORD: temporary_password
-            }
+
+    /**
+     * 管理者によるパスワード作成
+     */
+    const adminCreateUser = async (email: string, temporary_password: string) => {
+        const client = new CognitoIdentityProviderClient({
+            region: "ap-northeast-1",
+            credentials: config.public.credentials,
+        });
+
+        const userPoolId = config.public.userPoolId; // 冗長性を排除
+
+        const createParams: AdminCreateUserCommandInput = {
+            UserPoolId: userPoolId,
+            Username: email,
+            TemporaryPassword: temporary_password,
+            UserAttributes: [
+                {Name: 'email', Value: email},
+            ],
+            MessageAction: "SUPPRESS",
         };
 
-        try {
-            const command = new InitiateAuthCommand(params);
-            const response:　InitiateAuthCommandOutput = await client.send(command)
+        const createCommand = new AdminCreateUserCommand(createParams);
 
-            /**
-             * 認証チャレンジする。
-             */
-            if (response.ChallengeName === "NEW_PASSWORD_REQUIRED") {
-                console.log("newpasswordrequired")
-                const params: RespondToAuthChallengeCommandInput = {
-                    ClientId: config.public.clientId,
-                    ChallengeName: "NEW_PASSWORD_REQUIRED",
-                    ChallengeResponses: {
-                        USERNAME: email,
-                        NEW_PASSWORD: new_password
-                    },
-                    Session: response.Session
-                }
-                try {
-                    const response: RespondToAuthChallengeCommandOutput = RespondToAuthChallengeCommand(params);
-                    console.log(response);
-                } catch(error) {
-                    console.error("challenge newpassword is failed", error)
-                }
-            }
-        }catch(error) {
-            console.error("initial signing in is failed", error);
+        try {
+            const createResponse = await client.send(createCommand);
+            console.log("Admin creating user succeeded", createResponse);
+
+            const setPasswordParams: AdminSetUserPasswordCommandInput = {
+                UserPoolId: userPoolId,
+                Username: email,
+                Password: temporary_password,
+                Permanent: true,
+            };
+
+            const setPasswordCommand = new AdminSetUserPasswordCommand(setPasswordParams);
+            const setPasswordResponse = await client.send(setPasswordCommand);
+            console.log("Admin setting new password succeeded", setPasswordResponse);
+
+        } catch (error) {
+            console.error("Error occurred:", error);
         }
     };
 
     return {
         signIn,
         signUp,
-        adminSignUp
+        adminSignUp,
+        adminCreateUser
     }
 }
