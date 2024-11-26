@@ -16,10 +16,11 @@ const client = new CognitoIdentityProviderClient({
 
 const config = useRuntimeConfig();
 
-// ============================================================================
-// ログイン処理
-// ============================================================================
+
 export const useAuth = () => {
+    // ============================================================================
+    // ログイン処理
+    // ============================================================================
     const signIn = async (email: string, password: string) => {
 
         try {
@@ -55,8 +56,10 @@ export const useAuth = () => {
         }
     };
 
+    // ============================================================================
+    // サインアップ処理
+    // ============================================================================
     const signUp = async (email: string, username: string, password: string) => {
-
 
         const params: SignUpCommandInput = {
             ClientId: config.public.clientId,
