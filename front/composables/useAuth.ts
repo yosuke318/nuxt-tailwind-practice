@@ -63,7 +63,7 @@ export const useAuth = () => {
     };
 
     // ============================================================================
-    // サインアップ処理
+    // サインアップ処理（氏名の使い道は不明）
     // ============================================================================
     const signUp = async (email: string, username: string, password: string) => {
 
@@ -104,7 +104,6 @@ export const useAuth = () => {
             UserPoolId: config.public.userPoolId,
             Username: email,
 
-            // TemporaryPassword: "Test-marufoy-00!",
             UserAttributes: [
                 {
                     "Name": "email",
@@ -125,9 +124,9 @@ export const useAuth = () => {
     };
 
 
-    /**
-     * 管理者によるパスワード作成
-     */
+    // ============================================================================
+    // 管理者によるサインアップ(管理者が一括でパスワードも登録したい時）
+    // ============================================================================
     const adminCreateUser = async (email: string, temporary_password: string) => {
         const client = new CognitoIdentityProviderClient({
             region: "ap-northeast-1",
