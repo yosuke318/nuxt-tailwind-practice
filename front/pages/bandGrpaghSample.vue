@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BandGraph :chartData="chartData" :showLegend=false />
+    <BandGraph :chartData="chartData" :showLegend=true />
   </div>
 </template>
 

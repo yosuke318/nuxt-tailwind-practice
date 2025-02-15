@@ -28,8 +28,15 @@ const chartOptions = ref({
   plugins: {
     legend: {
       display: props.showLegend ?? true,
-      position: 'bottom'
-    }
+      position: 'bottom',
+      labels: {
+        color: 'rgb(0, 0, 0)',
+        font: {
+          size: 20
+        }
+      }
+    },
   },
+
 })
 </script>
