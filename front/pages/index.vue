@@ -21,6 +21,10 @@
   <nuxt-link to="/signup" style="color:green">signup</nuxt-link>
   <br/>
 
+  <h1>Signup</h1>
+  <nuxt-link to="/bandGrpaghSample" style="color:blue">band graph</nuxt-link>
+  <br/>
+
   <button class="items-center justify-center bg-blue-500 py-4 px-2 text-white font-bold rounded hover:shadow-md hover:-translate-y-0.5 active:shadow-none active:translate-y-0.5"
   @click="clearSessionStorageId">
     セッションストレージのIDクリア
