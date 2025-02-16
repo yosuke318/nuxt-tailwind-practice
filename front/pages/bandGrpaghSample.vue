@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 
-import BandGraph from "~/components/BandGraph.vue";
+import BandGraph from "~/components/HorizonStackedBarChart.vue";
 
 
 const chartData = ref({
