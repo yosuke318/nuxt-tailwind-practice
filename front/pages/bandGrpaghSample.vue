@@ -13,7 +13,7 @@ const chartData = ref({
   labels: ['1', '2', '3', '4', '5', '6'],
   datasets: [
     {
-      label: '一般',
+      label: '一般社員',
       data: [10, 10, 10, 20, 10, 10],
       fill: true,
       backgroundColor: 'rgb(255, 99, 132)',
@@ -22,7 +22,7 @@ const chartData = ref({
       borderSkipped: true
     },
     {
-      label: 'エース',
+      label: 'エース社員',
       data: [80, 80, 50, 70, 80, 80],
       fill: false,
       backgroundColor: 'rgb(87, 75, 192)',
