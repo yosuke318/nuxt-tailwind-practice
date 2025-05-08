@@ -33,30 +33,35 @@ const logout = async () => {
 const checkSession = () => {
   const cognitoUser = userPool.getCurrentUser();
 
-  if (cognitoUser) {
-    cognitoUser.getSession((err, session) => {
-      if (err) {
-        console.error("Error retrieving session", err);
-        return;
-      }
+  try {
+    if (cognitoUser) {
+      cognitoUser.getSession((err, session) => {
+        if (err) {
+          console.error("Error retrieving session", err);
+          return;
+        }
 
-      if (session.isValid()) {
-        const payload = JSON.parse(atob(session.getIdToken().jwtToken.split('.')[1]));
-        console.log('ID token paylowad:', payload);
+        if (session.isValid()) {
+          const payload = JSON.parse(atob(session.getIdToken().jwtToken.split('.')[1]));
+          console.log('ID token paylowad:', payload);
 
-        const expirationTime = new Date(session.getIdToken().getExpiration() * 1000);
-        const currentTime = new Date();
-        const timeLeft = expirationTime - currentTime;
-        const minutesLeft = Math.floor(timeLeft / (1000 * 60));
-        console.log(`Session is valid. It will expire in ${minutesLeft} minutes.`);
-        console.log("有効きげん：", expirationTime)
-        console.log("現在時刻", currentTime)
-      } else {
-        console.log('Session is not valid.');
-      }
-    });
-  } else {
+          const expirationTime = new Date(session.getIdToken().getExpiration() * 1000);
+          const currentTime = new Date();
+          const timeLeft = expirationTime - currentTime;
+          const minutesLeft = Math.floor(timeLeft / (1000 * 60));
+          console.log(`Session is valid. It will expire in ${minutesLeft} minutes.`);
+          console.log("有効きげん：", expirationTime)
+          console.log("現在時刻", currentTime)
+        } else {
+          console.log('Session is not valid.');
+        }
+      });
+    }
+  } catch (error) {
     console.log("User doesn't have a valid session");
+  }
+  finally {
+    console.log("セッション確認処理が完了しました");
   }
 }
 </script>
